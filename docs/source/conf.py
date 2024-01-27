@@ -40,3 +40,9 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 html_favicon = '_static/favicon.ico'
+html_context = {
+    'display_github': True,
+    'github_user': 'spraharaj-projects',
+    'github_repo': 'algo_spectrum',
+    'github_version': 'master/docs/source/'
+}

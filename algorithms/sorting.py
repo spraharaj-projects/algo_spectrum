@@ -1,3 +1,6 @@
+"""
+This module contains implementations of sorting algorithms.
+"""
 from typing import List, Any
 
 

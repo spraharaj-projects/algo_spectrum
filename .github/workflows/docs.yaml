@@ -1,0 +1,23 @@
+name: Publish Sphinx Documentaion
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish_sphinx_docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install poetry==1.7.1
+          poetry install --only dev
+      - name: Sphinx build
+        run: |
+          
+

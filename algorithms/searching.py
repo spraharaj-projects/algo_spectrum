@@ -1,3 +1,6 @@
+"""
+This module contains implementations of searching algorithms.
+"""
 from typing import List, Optional, Any
 
 

@@ -9,6 +9,7 @@ packages = [{include = "algo_spectrum"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 pytest = "^7.0"
+poetry = "^1.7.1"
 
 [tool.poetry.group.dev.dependencies]
 sphinx = "^7.2.6"

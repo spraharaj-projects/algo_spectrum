@@ -1,5 +1,5 @@
-algorithms package
-==================
+data\_structures package
+========================
 
 Submodules
 ----------
@@ -7,13 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   algorithms.searching
-   algorithms.sorting
+   data_structures.node
 
 Module contents
 ---------------
 
-.. automodule:: algorithms
+.. automodule:: data_structures
    :members:
    :undoc-members:
    :show-inheritance:

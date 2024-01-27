@@ -1,5 +1,5 @@
-algorithms package
-==================
+tests.algorithms package
+========================
 
 Submodules
 ----------
@@ -7,13 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   algorithms.searching
-   algorithms.sorting
+   tests.algorithms.test_searching
 
 Module contents
 ---------------
 
-.. automodule:: algorithms
+.. automodule:: tests.algorithms
    :members:
    :undoc-members:
    :show-inheritance:

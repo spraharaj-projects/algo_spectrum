@@ -34,8 +34,9 @@ goto end
 :end
 
 :clean
-%SPHINXBUILD% -M clean %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O% &&
-cd build && git worktree add -f html gh-pages
+%SPHINXBUILD% -M clean %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O% && ^
+cd build && ^
+git worktree add -f html gh-pages
 
 
 popd

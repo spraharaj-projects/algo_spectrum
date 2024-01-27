@@ -1,46 +1,16 @@
-"""
-Algo Spectrum: Searching Module
-
-This module contains various searching algorithms for finding elements within a
-collection.
-
-Available Algorithms:
-- Linear Search
-- Sentinel Linear Search
-- Binary Search
-- ... (other searching algorithms)
-
-Usage:
-1. Import the module in your Python script:
-    from algo_spectrum import binary_search, linear_search
-
-2. Utilize the provided searching algorithms:
-    - Linear Search:
-      result = linear_search(target_element, array)
-
-    - Sentinel Linear Search:
-      result = linear_search(target_element, array)
-
-    - Binary Search:
-      result = binary_search(target_element, sorted_array)
-
-Each algorithm is designed for specific scenarios, providing flexibility for
-different use cases. Refer to the individual algorithm docstrings for detailed
-usage instructions and examples.
-
-For more information and updates, visit the Algo Spectrum GitHub repository:
-https://github.com/your-username/algo-spectrum
-"""
 from typing import List, Optional, Any
 
 
 def linear_search(target: Any, items: List[Any]) -> Optional[int]:
     """
-    Perform linear search to find the target value in a list.
+    Linear search sequentially scans through a collection, comparing each
+    element with the target value until a match is found or the end of the
+    collection is reached, making it suitable for small or unsorted datasets.
 
     :param Any target: The value to search for.
     :param Any items: The list of items to search.
-    :return int: The index of the target if found, or None if not present.
+    :return: The index of the target if found, or None if not present.
+    :rtype: int
     """
     for index, item in enumerate(items):
         if item == target:
@@ -52,11 +22,14 @@ def linear_search(target: Any, items: List[Any]) -> Optional[int]:
 
 def sentinel_linear_search(target: Any, items: List[Any]) -> Optional[int]:
     """
-    Perform sentinel search to find the target value in a list.
+    Sentinel linear search optimizes the standard linear search algorithm by
+    reducing comparisons within the loop, enhancing its efficiency for
+    searching unsorted collections.
 
     :param Any target: The value to search for.
     :param Any items: The list of items to search.
-    :return int: The index of the target if found, or None if not present.
+    :return: The index of the target if found, or None if not present.
+    :rtype: int
     """
     n = len(items)  # Length of items list
     last = items[n - 1]  # store last element of list
@@ -76,11 +49,14 @@ def sentinel_linear_search(target: Any, items: List[Any]) -> Optional[int]:
 
 def binary_search(target: Any, items: List[Any]) -> Optional[int]:
     """
-    Perform binary search to find the target value in a list
+    Binary search quickly finds a target value within a sorted collection by
+    repeatedly dividing the search space in half, resulting in logarithmic
+    time complexity.
 
-    :param target: The value to search for.
-    :param items: The list of items to search.
+    :param Any target: The value to search for.
+    :param Any items: The list of items to search.
     :return: The index of the target if found, or None if not present.
+    :rtype: int
     """
     low, high = 0, len(items) - 1
 

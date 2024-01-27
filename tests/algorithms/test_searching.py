@@ -2,7 +2,7 @@
 Test cases for various searching algorithms using pytest.
 """
 
-from algo_spectrum import (
+from algorithms import (
     linear_search,
     sentinel_linear_search,
     binary_search,

@@ -5,6 +5,11 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath('../..'))
+
 
 project = 'Algo Spectrum'
 copyright = '2024, Supreet Praharaj'
@@ -16,6 +21,10 @@ release = '0.1'
 
 extensions = [
     'sphinx_rtd_theme',
+    'sphinx.ext.todo',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
 ]
 
 templates_path = ['_templates']

@@ -35,7 +35,7 @@ Algorithms Included
      found or exceeded.
    - **Use Case:** Combines advantages of linear and binary search.
 
-5. **Interpolation Search:**
+5. **Interpolation Search:** [:func:`algorithms.searching.interpolation_search`]
 
    - **Description:** Requires a sorted array with uniformly distributed values.
      Estimates the position of the target value based on its value and the
@@ -63,7 +63,7 @@ Algorithms Included
      parts.
    - **Use Case:** Useful for ternary searchable spaces.
 """
-from typing import List, Optional, Any
+from typing import List, Optional, Any, Union
 
 
 def linear_search(target: Any, items: List[Any]) -> Optional[int]:
@@ -172,5 +172,49 @@ def jump_search(target: Any, items: List[Any]) -> Optional[int]:
 
     if items[prev] == target:
         return prev
+
+    return None
+
+
+def interpolation_search(
+        target: Union[int, float, complex],
+        items: List[Union[int, float, complex]]
+) -> Optional[int]:
+    """
+    Perform Interpolation Search to find the index of the target element in the
+    given sorted array.
+
+    Interpolation search is an algorithm for finding a specific value within an
+    array that is sorted in ascending order. It works by making a linear
+    interpolation to estimate the position of the target value within the array,
+    then performs binary search in the estimated range. This algorithm is most
+    effective when the elements in the array are uniformly distributed.
+
+    :param SupportsComplex target: The value to search for.
+    :param List[SupportsComplex] items: The list of items to search.
+    :return: The index of the target if found, or None if not present.
+    :rtype: Optional[int]
+    """
+    low = 0
+    high = len(items) - 1
+
+    while low <= high and items[low] <= target <= items[high]:
+        if low == high:
+            if items[low] == target:
+                return low
+            return None
+
+        pos = low + int(
+            (high - low) /
+            (items[high] - items[low]) *
+            (target - items[low])
+        )
+
+        if items[pos] == target:
+            return pos
+        elif items[pos] < target:
+            low = pos + 1
+        else:
+            high = pos - 1
 
     return None

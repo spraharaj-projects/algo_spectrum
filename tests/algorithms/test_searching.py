@@ -7,6 +7,7 @@ from algorithms import (
     sentinel_linear_search,
     binary_search,
     jump_search,
+    interpolation_search,
 )
 
 
@@ -159,4 +160,20 @@ def test_jump_search_not_found_string():
         'strawberry',
         ['orange', 'banana', 'apple', 'pineapple', 'grapes']
     )
+    assert result is None
+
+
+def test_interpolation_search_found_int():
+    """
+    Test interpolation_search when the int target value is found.
+    """
+    result = interpolation_search(2, [1, 2, 3, 4, 5])
+    assert result == 1
+
+
+def test_interpolation_search_not_found_int():
+    """
+    Test interpolation_search when the int target value is not found.
+    """
+    result = interpolation_search(10, [1, 2, 3, 4, 5])
     assert result is None

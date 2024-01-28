@@ -1,3 +1,9 @@
+"""
+Algorithms
+==========
+
+Doc on algo.
+"""
 from algorithms.searching import linear_search
 from algorithms.searching import sentinel_linear_search
 from algorithms.searching import binary_search

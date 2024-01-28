@@ -45,7 +45,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contents/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/data_structure.html">Data Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages and Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">algo_spectrum</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="algorithms.html">algorithms package</a><ul class="current">
@@ -91,7 +96,25 @@
              
   <section id="module-algorithms.searching">
 <span id="algorithms-searching-module"></span><h1>algorithms.searching module<a class="headerlink" href="#module-algorithms.searching" title="Link to this heading"></a></h1>
-<p>This module contains implementations of searching algorithms.</p>
+<section id="searching-module">
+<h2>Searching Module<a class="headerlink" href="#searching-module" title="Link to this heading"></a></h2>
+<p>The Searching Module in Algo Spectrum provides implementations of various
+searching algorithms, each designed to efficiently locate elements within an
+array or other collection.</p>
+<section id="algorithms-included">
+<h3>Algorithms Included<a class="headerlink" href="#algorithms-included" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Linear Search</strong> [<a class="reference internal" href="#algorithms.searching.linear_search" title="algorithms.searching.linear_search"><code class="xref py py-func docutils literal notranslate"><span class="pre">algorithms.searching.linear_search()</span></code></a>]</p></li>
+<li><p><strong>Sentinel Search:</strong> [<a class="reference internal" href="#algorithms.searching.sentinel_linear_search" title="algorithms.searching.sentinel_linear_search"><code class="xref py py-func docutils literal notranslate"><span class="pre">algorithms.searching.sentinel_linear_search()</span></code></a>]</p></li>
+<li><p><strong>Binary Search:</strong> [<a class="reference internal" href="#algorithms.searching.binary_search" title="algorithms.searching.binary_search"><code class="xref py py-func docutils literal notranslate"><span class="pre">algorithms.searching.binary_search()</span></code></a>]</p></li>
+<li><p><strong>Jump Search:</strong> [<a class="reference internal" href="#algorithms.searching.jump_search" title="algorithms.searching.jump_search"><code class="xref py py-func docutils literal notranslate"><span class="pre">algorithms.searching.jump_search()</span></code></a>]</p></li>
+<li><p><strong>Interpolation Search:</strong> [<a class="reference internal" href="#algorithms.searching.interpolation_search" title="algorithms.searching.interpolation_search"><code class="xref py py-func docutils literal notranslate"><span class="pre">algorithms.searching.interpolation_search()</span></code></a>]</p></li>
+<li><p><strong>Exponential Search:</strong></p></li>
+<li><p><strong>Fibonacci Search:</strong></p></li>
+<li><p><strong>Ternary Search:</strong></p></li>
+</ol>
+</section>
+</section>
 <dl class="py function">
 <dt class="sig sig-object py" id="algorithms.searching.binary_search">
 <span class="sig-prename descclassname"><span class="pre">algorithms.searching.</span></span><span class="sig-name descname"><span class="pre">binary_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/algorithms/searching.html#binary_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algorithms.searching.binary_search" title="Link to this definition"></a></dt>
@@ -102,14 +125,65 @@ time complexity.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target</strong> (<em>Any</em>) – The value to search for.</p></li>
-<li><p><strong>items</strong> (<em>Any</em>) – The list of items to search.</p></li>
+<li><p><strong>items</strong> (<em>List</em><em>[</em><em>Any</em><em>]</em>) – The list of items to search.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The index of the target if found, or None if not present.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="algorithms.searching.interpolation_search">
+<span class="sig-prename descclassname"><span class="pre">algorithms.searching.</span></span><span class="sig-name descname"><span class="pre">interpolation_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/algorithms/searching.html#interpolation_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algorithms.searching.interpolation_search" title="Link to this definition"></a></dt>
+<dd><p>Perform Interpolation Search to find the index of the target element in the
+given sorted array.</p>
+<p>Interpolation search is an algorithm for finding a specific value within an
+array that is sorted in ascending order. It works by making a linear
+interpolation to estimate the position of the target value within the array,
+then performs binary search in the estimated range. This algorithm is most
+effective when the elements in the array are uniformly distributed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>SupportsComplex</em>) – The value to search for.</p></li>
+<li><p><strong>items</strong> (<em>List</em><em>[</em><em>SupportsComplex</em><em>]</em>) – The list of items to search.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The index of the target if found, or None if not present.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="algorithms.searching.jump_search">
+<span class="sig-prename descclassname"><span class="pre">algorithms.searching.</span></span><span class="sig-name descname"><span class="pre">jump_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/algorithms/searching.html#jump_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algorithms.searching.jump_search" title="Link to this definition"></a></dt>
+<dd><p>Perform Jump Search to find the index of the target element in the given
+sorted array.</p>
+<p>It works on the principle of linear search but improves the efficiency by
+jumping a fixed number of steps ahead in each iteration, thus reducing the
+number of comparisons. This algorithm requires the array to be sorted
+beforehand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>Any</em>) – The target element to search for.</p></li>
+<li><p><strong>items</strong> (<em>List</em><em>[</em><em>Any</em><em>]</em>) – The sorted list or array to search in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The index of the target element if found, else None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -131,7 +205,7 @@ collection is reached, making it suitable for small or unsorted datasets.</p>
 <dd class="field-even"><p>The index of the target if found, or None if not present.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>Optional[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -153,7 +227,7 @@ searching unsorted collections.</p>
 <dd class="field-even"><p>The index of the target if found, or None if not present.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>Optional[int]</p>
 </dd>
 </dl>
 </dd></dl>

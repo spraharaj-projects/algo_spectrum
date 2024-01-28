@@ -42,7 +42,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents/data_structure.html">Data Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages and Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../modules.html">algo_spectrum</a></li>
 </ul>
@@ -80,6 +85,8 @@
     <span class="n">linear_search</span><span class="p">,</span>
     <span class="n">sentinel_linear_search</span><span class="p">,</span>
     <span class="n">binary_search</span><span class="p">,</span>
+    <span class="n">jump_search</span><span class="p">,</span>
+    <span class="n">interpolation_search</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -189,8 +196,8 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Test binary_search when the int target value is found.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">binary_search</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">2</span></div>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">binary_search</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">1</span></div>
 
 
 
@@ -229,6 +236,78 @@
         <span class="s1">&#39;strawberry&#39;</span><span class="p">,</span>
         <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">]</span>
     <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="test_jump_search_found_int">
+<a class="viewcode-back" href="../../../tests.algorithms.test_searching.html#tests.algorithms.test_searching.test_jump_search_found_int">[docs]</a>
+<span class="k">def</span> <span class="nf">test_jump_search_found_int</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test jump_search when the int target value is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">jump_search</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="test_jump_search_not_found_int">
+<a class="viewcode-back" href="../../../tests.algorithms.test_searching.html#tests.algorithms.test_searching.test_jump_search_not_found_int">[docs]</a>
+<span class="k">def</span> <span class="nf">test_jump_search_not_found_int</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test jump_search when the int target value is not found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">jump_search</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="test_jump_search_found_string">
+<a class="viewcode-back" href="../../../tests.algorithms.test_searching.html#tests.algorithms.test_searching.test_jump_search_found_string">[docs]</a>
+<span class="k">def</span> <span class="nf">test_jump_search_found_string</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test jump_search when the string target value is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">jump_search</span><span class="p">(</span>
+        <span class="s1">&#39;grapes&#39;</span><span class="p">,</span>
+        <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="test_jump_search_not_found_string">
+<a class="viewcode-back" href="../../../tests.algorithms.test_searching.html#tests.algorithms.test_searching.test_jump_search_not_found_string">[docs]</a>
+<span class="k">def</span> <span class="nf">test_jump_search_not_found_string</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test jump_search when the string target value is not found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">jump_search</span><span class="p">(</span>
+        <span class="s1">&#39;strawberry&#39;</span><span class="p">,</span>
+        <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">,</span> <span class="s1">&#39;grapes&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="test_interpolation_search_found_int">
+<a class="viewcode-back" href="../../../tests.algorithms.test_searching.html#tests.algorithms.test_searching.test_interpolation_search_found_int">[docs]</a>
+<span class="k">def</span> <span class="nf">test_interpolation_search_found_int</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test interpolation_search when the int target value is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">interpolation_search</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="test_interpolation_search_not_found_int">
+<a class="viewcode-back" href="../../../tests.algorithms.test_searching.html#tests.algorithms.test_searching.test_interpolation_search_not_found_int">[docs]</a>
+<span class="k">def</span> <span class="nf">test_interpolation_search_not_found_int</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test interpolation_search when the int target value is not found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">interpolation_search</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
     <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span></div>
 
 </pre></div>

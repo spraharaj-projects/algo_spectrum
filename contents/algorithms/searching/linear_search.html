@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear Search &mdash; Algo Spectrum 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Sentinel Linear Search" href="sentinel_linear_search.html" />
+    <link rel="prev" title="Searching Algorithms" href="../searching.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Algo Spectrum
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../searching.html">Searching Algorithms</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Linear Search</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm-overview">Algorithm Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-in-python">Implementation in Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sentinel_linear_search.html">Sentinel Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="binary_search.html">Binary Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jump_search.html">Jump Search</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sorting.html">Sorting Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematical.html">Mathematical Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_structure.html">Data Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages and Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">algo_spectrum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Algo Spectrum</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../algorithms.html">Algorithms</a></li>
+          <li class="breadcrumb-item"><a href="../searching.html">Searching Algorithms</a></li>
+      <li class="breadcrumb-item active">Linear Search</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/spraharaj-projects/algo_spectrum/blob/master/docs/source/contents/algorithms/searching/linear_search.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linear-search">
+<h1>Linear Search<a class="headerlink" href="#linear-search" title="Link to this heading"></a></h1>
+<p><strong>Reference:</strong> <a class="reference internal" href="../../../algorithms.html#algorithms.linear_search" title="algorithms.linear_search"><code class="xref py py-func docutils literal notranslate"><span class="pre">algorithms.linear_search()</span></code></a></p>
+<p>The Linear Search algorithm, also known as Sequential Search, is a simple
+searching algorithm that sequentially checks each element of a collection until
+a match is found or the entire collection is traversed.</p>
+<section id="algorithm-overview">
+<h2>Algorithm Overview<a class="headerlink" href="#algorithm-overview" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="../../../_images/linear_search.jpg"><img alt="Linear Search Flow Diagram" class="align-center" src="../../../_images/linear_search.jpg" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple">
+<li><p>Start with the first element of the collection.</p></li>
+<li><p>Compare the target element with the current element.</p></li>
+<li><p>If a match is found, return the index of the current element.</p></li>
+<li><p>If the target element is not found, move to the next element and repeat steps
+2-3.</p></li>
+<li><p>Continue this process until the target element is found or the end of the
+collection is reached.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Linear Search has a time complexity of O(n), where ‘n’ is the number of
+elements in the collection.</p>
+</div>
+</section>
+<section id="implementation-in-python">
+<h2>Implementation in Python<a class="headerlink" href="#implementation-in-python" title="Link to this heading"></a></h2>
+<p>Here’s a Python implementation of the Linear Search algorithm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="k">def</span> <span class="nf">linear_search</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="linenos">2</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+<span class="linenos">3</span>         <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+<span class="linenos">4</span>             <span class="k">return</span> <span class="n">i</span>
+<span class="linenos">5</span>     <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>To use the linear_search function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">algorithms</span> <span class="kn">import</span> <span class="n">linear_search</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="linenos"> 5</span> <span class="n">target</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="hll"><span class="linenos"> 6</span> <span class="n">index</span> <span class="o">=</span> <span class="n">linear_search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</span><span class="linenos"> 7</span> <span class="k">if</span> <span class="n">index</span><span class="p">:</span>
+<span class="linenos"> 8</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Element </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> found at index </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span> <span class="k">else</span><span class="p">:</span>
+<span class="linenos">10</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Element </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../searching.html" class="btn btn-neutral float-left" title="Searching Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sentinel_linear_search.html" class="btn btn-neutral float-right" title="Sentinel Linear Search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Supreet Praharaj.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

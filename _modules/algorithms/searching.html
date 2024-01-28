@@ -42,7 +42,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/data_structure.html">Data Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages and Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">algo_spectrum</a></li>
 </ul>
@@ -73,9 +78,26 @@
              
   <h1>Source code for algorithms.searching</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This module contains implementations of searching algorithms.</span>
+<span class="sd">Searching Module</span>
+<span class="sd">================</span>
+
+<span class="sd">The Searching Module in Algo Spectrum provides implementations of various</span>
+<span class="sd">searching algorithms, each designed to efficiently locate elements within an</span>
+<span class="sd">array or other collection.</span>
+
+<span class="sd">Algorithms Included</span>
+<span class="sd">-------------------</span>
+
+<span class="sd">1. **Linear Search** [:func:`algorithms.searching.linear_search`]</span>
+<span class="sd">2. **Sentinel Search:** [:func:`algorithms.searching.sentinel_linear_search`]</span>
+<span class="sd">3. **Binary Search:** [:func:`algorithms.searching.binary_search`]</span>
+<span class="sd">4. **Jump Search:** [:func:`algorithms.searching.jump_search`]</span>
+<span class="sd">5. **Interpolation Search:** [:func:`algorithms.searching.interpolation_search`]</span>
+<span class="sd">6. **Exponential Search:**</span>
+<span class="sd">7. **Fibonacci Search:**</span>
+<span class="sd">8. **Ternary Search:**</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
 
 
 <div class="viewcode-block" id="linear_search">
@@ -89,7 +111,7 @@
 <span class="sd">    :param Any target: The value to search for.</span>
 <span class="sd">    :param Any items: The list of items to search.</span>
 <span class="sd">    :return: The index of the target if found, or None if not present.</span>
-<span class="sd">    :rtype: int</span>
+<span class="sd">    :rtype: Optional[int]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
@@ -111,7 +133,7 @@
 <span class="sd">    :param Any target: The value to search for.</span>
 <span class="sd">    :param Any items: The list of items to search.</span>
 <span class="sd">    :return: The index of the target if found, or None if not present.</span>
-<span class="sd">    :rtype: int</span>
+<span class="sd">    :rtype: Optional[int]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>  <span class="c1"># Length of items list</span>
     <span class="n">last</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># store last element of list</span>
@@ -139,9 +161,9 @@
 <span class="sd">    time complexity.</span>
 
 <span class="sd">    :param Any target: The value to search for.</span>
-<span class="sd">    :param Any items: The list of items to search.</span>
+<span class="sd">    :param List[Any] items: The list of items to search.</span>
 <span class="sd">    :return: The index of the target if found, or None if not present.</span>
-<span class="sd">    :rtype: int</span>
+<span class="sd">    :rtype: Optional[int]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
@@ -157,6 +179,92 @@
             <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
 
     <span class="c1"># Target value not found</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="jump_search">
+<a class="viewcode-back" href="../../algorithms.searching.html#algorithms.jump_search">[docs]</a>
+<span class="k">def</span> <span class="nf">jump_search</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform Jump Search to find the index of the target element in the given</span>
+<span class="sd">    sorted array.</span>
+
+<span class="sd">    It works on the principle of linear search but improves the efficiency by</span>
+<span class="sd">    jumping a fixed number of steps ahead in each iteration, thus reducing the</span>
+<span class="sd">    number of comparisons. This algorithm requires the array to be sorted</span>
+<span class="sd">    beforehand.</span>
+
+<span class="sd">    :param Any target: The target element to search for.</span>
+<span class="sd">    :param List[Any] items: The sorted list or array to search in.</span>
+<span class="sd">    :return: The index of the target element if found, else None.</span>
+<span class="sd">    :rtype: Optional[int]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Determine the step size for jumping</span>
+
+    <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">items</span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">step</span>
+        <span class="n">step</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">while</span> <span class="n">items</span><span class="p">[</span><span class="n">prev</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">prev</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">prev</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">prev</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">prev</span>
+
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="interpolation_search">
+<a class="viewcode-back" href="../../algorithms.searching.html#algorithms.interpolation_search">[docs]</a>
+<span class="k">def</span> <span class="nf">interpolation_search</span><span class="p">(</span>
+        <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">complex</span><span class="p">],</span>
+        <span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">complex</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform Interpolation Search to find the index of the target element in the</span>
+<span class="sd">    given sorted array.</span>
+
+<span class="sd">    Interpolation search is an algorithm for finding a specific value within an</span>
+<span class="sd">    array that is sorted in ascending order. It works by making a linear</span>
+<span class="sd">    interpolation to estimate the position of the target value within the array,</span>
+<span class="sd">    then performs binary search in the estimated range. This algorithm is most</span>
+<span class="sd">    effective when the elements in the array are uniformly distributed.</span>
+
+<span class="sd">    :param SupportsComplex target: The value to search for.</span>
+<span class="sd">    :param List[SupportsComplex] items: The list of items to search.</span>
+<span class="sd">    :return: The index of the target if found, or None if not present.</span>
+<span class="sd">    :rtype: Optional[int]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span> <span class="ow">and</span> <span class="n">items</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">target</span> <span class="o">&lt;=</span> <span class="n">items</span><span class="p">[</span><span class="n">high</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">low</span> <span class="o">==</span> <span class="n">high</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">low</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span><span class="p">)</span> <span class="o">/</span>
+            <span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="n">high</span><span class="p">]</span> <span class="o">-</span> <span class="n">items</span><span class="p">[</span><span class="n">low</span><span class="p">])</span> <span class="o">*</span>
+            <span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">items</span><span class="p">[</span><span class="n">low</span><span class="p">])</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pos</span>
+        <span class="k">elif</span> <span class="n">items</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">-</span> <span class="mi">1</span>
+
     <span class="k">return</span> <span class="kc">None</span></div>
 
 </pre></div>

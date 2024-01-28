@@ -23,6 +23,7 @@ and proficiency.
    :caption: Table of Contents
 
    contents/algorithms
+   contents/data_structure
 
 .. toctree::
    :maxdepth: 2

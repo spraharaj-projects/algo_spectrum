@@ -10,8 +10,7 @@ class Node(ABC):
         """
         Initializes a node with the given data.
 
-        Args:
-            data (Any): The data to be stored in the node.
+        :param Any data: The data to be stored in the node.
         """
         self.data = data
 

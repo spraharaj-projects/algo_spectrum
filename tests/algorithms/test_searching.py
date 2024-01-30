@@ -8,6 +8,9 @@ from algorithms import (
     binary_search,
     jump_search,
     interpolation_search,
+    exponential_search,
+    fibonacci_search,
+    ternary_search,
 )
 
 
@@ -176,4 +179,96 @@ def test_interpolation_search_not_found_int():
     Test interpolation_search when the int target value is not found.
     """
     result = interpolation_search(10, [1, 2, 3, 4, 5])
+    assert result is None
+
+
+def test_exponential_search_found_int():
+    """
+    Test exponential_search when the int target value is found.
+    """
+    result = exponential_search(2, [1, 2, 3, 4, 5])
+    assert result == 1
+
+
+def test_exponential_search_not_found_int():
+    """
+    Test exponential_search when the int target value is not found.
+    """
+    result = exponential_search(10, [1, 2, 3, 4, 5])
+    assert result is None
+
+
+def test_exponential_search_found_string():
+    """
+    Test exponential_search when the string target value is found.
+    """
+    result = exponential_search(
+        'grapes',
+        ['apple', 'banana', 'grapes', 'orange', 'pineapple']
+    )
+    assert result == 2
+
+
+def test_exponential_search_not_found_string():
+    """
+    Test exponential_search when the string target value is not found.
+    """
+    result = exponential_search(
+        'strawberry',
+        ['orange', 'banana', 'apple', 'pineapple', 'grapes']
+    )
+    assert result is None
+
+
+def test_fibonacci_search_found_int():
+    """
+    Test fibonacci_search when the int target value is found.
+    """
+    result = fibonacci_search(2, [1, 2, 3, 4, 5])
+    assert result == 1
+
+
+def test_fibonacci_search_not_found_int():
+    """
+    Test fibonacci_search when the int target value is not found.
+    """
+    result = fibonacci_search(10, [1, 2, 3, 4, 5])
+    assert result is None
+
+
+def test_ternary_search_found_int():
+    """
+    Test ternary_search when the int target value is found.
+    """
+    result = ternary_search(2, [1, 2, 3, 4, 5])
+    assert result == 1
+
+
+def test_ternary_search_not_found_int():
+    """
+    Test ternary_search when the int target value is not found.
+    """
+    result = ternary_search(10, [1, 2, 3, 4, 5])
+    assert result is None
+
+
+def test_ternary_search_found_string():
+    """
+    Test ternary_search when the string target value is found.
+    """
+    result = ternary_search(
+        'grapes',
+        ['apple', 'banana', 'grapes', 'orange', 'pineapple']
+    )
+    assert result == 2
+
+
+def test_ternary_search_not_found_string():
+    """
+    Test ternary_search when the string target value is not found.
+    """
+    result = ternary_search(
+        'strawberry',
+        ['orange', 'banana', 'apple', 'pineapple', 'grapes']
+    )
     assert result is None

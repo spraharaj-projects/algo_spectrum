@@ -14,9 +14,9 @@ Algorithms Included
 3. **Binary Search:** [:func:`algorithms.searching.binary_search`]
 4. **Jump Search:** [:func:`algorithms.searching.jump_search`]
 5. **Interpolation Search:** [:func:`algorithms.searching.interpolation_search`]
-6. **Exponential Search:** [:func:`algorithms.searching.interpolation_search`]
-7. **Fibonacci Search:** [:func:`algorithms.searching.interpolation_search`]
-8. **Ternary Search:** [:func:`algorithms.searching.interpolation_search`]
+6. **Exponential Search:** [:func:`algorithms.searching.exponential_search`]
+7. **Fibonacci Search:** [:func:`algorithms.searching.fibonacci_search`]
+8. **Ternary Search:** [:func:`algorithms.searching.ternary_search`]
 """
 from typing import List, Optional, Any, Union
 

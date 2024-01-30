@@ -10,58 +10,13 @@ Algorithms Included
 -------------------
 
 1. **Linear Search** [:func:`algorithms.searching.linear_search`]
-
-   - **Description:** A simple algorithm that sequentially searches through each
-     element of the array until it finds the target value or reaches the end.
-   - **Usage:** Suitable for unsorted arrays.
-
 2. **Sentinel Search:** [:func:`algorithms.searching.sentinel_linear_search`]
-
-   - **Description:** Similar to linear search, but with a sentinel element
-     placed at the end of the array to avoid repeated boundary checks.
-   - **Use Case:** Improves the efficiency of linear search in some scenarios.
-
 3. **Binary Search:** [:func:`algorithms.searching.binary_search`]
-
-   - **Description:** Requires a sorted array. Divides the array in half
-     repeatedly until it finds the target value or determines that it's not
-     present.
-   - **Use Case:** Efficient for searching in sorted arrays.
-
 4. **Jump Search:** [:func:`algorithms.searching.jump_search`]
-
-   - **Description:** Requires a sorted array. Jumps forward by a fixed step
-     size and performs linear search in the block until the target value is
-     found or exceeded.
-   - **Use Case:** Combines advantages of linear and binary search.
-
 5. **Interpolation Search:** [:func:`algorithms.searching.interpolation_search`]
-
-   - **Description:** Requires a sorted array with uniformly distributed values.
-     Estimates the position of the target value based on its value and the
-     array's range, then performs binary search.
-   - **Use Case:** Effective when values are uniformly distributed.
-
 6. **Exponential Search:**
-
-   - **Description:** Requires a sorted array. Finds a range where the target
-     value may exist by exponentially increasing the search range, then performs
-     binary search within that range.
-   - **Use Case:** Optimized for unbounded search spaces.
-
 7. **Fibonacci Search:**
-
-   - **Description:** Requires a sorted array. Uses Fibonacci numbers to divide
-     the array into smaller parts, then performs binary search on the
-     appropriate part.
-   - **Use Case:** Useful when array sizes are unknown.
-
 8. **Ternary Search:**
-
-   - **Description:** Requires a sorted array. Divides the array into three
-     parts using two midpoints, then recursively searches in one of the three
-     parts.
-   - **Use Case:** Useful for ternary searchable spaces.
 """
 from typing import List, Optional, Any, Union
 

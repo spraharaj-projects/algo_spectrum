@@ -1,5 +1,5 @@
-Searching
-=========
+Searching Algorithms
+====================
 
 This is searching docs.
 
@@ -16,11 +16,12 @@ This is searching docs.
 | Jump Search       | O(1)             | O(sqrt(n))       | O(sqrt(n))       |
 +-------------------+------------------+------------------+------------------+
 
+**Some searching algorithms:**
 
 .. toctree::
-    :maxdepth: 4
+   :maxdepth: 1
 
-    binary_search
-    jump_search
-    linear_search
-    sentinel_linear_search
+   searching/linear_search
+   searching/sentinel_linear_search
+   searching/binary_search
+   searching/jump_search

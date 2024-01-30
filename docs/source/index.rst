@@ -19,10 +19,11 @@ insights needed to navigate the complexities of computer science with confidence
 and proficiency.
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
    :caption: Table of Contents
 
    contents/algorithms
+   contents/data_structure
 
 .. toctree::
    :maxdepth: 2

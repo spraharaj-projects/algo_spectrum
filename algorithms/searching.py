@@ -190,8 +190,8 @@ def interpolation_search(
     then performs binary search in the estimated range. This algorithm is most
     effective when the elements in the array are uniformly distributed.
 
-    :param SupportsComplex target: The value to search for.
-    :param List[SupportsComplex] items: The list of items to search.
+    :param int | float | complex target: The value to search for.
+    :param List[int | float | complex] items: The list of items to search.
     :return: The index of the target if found, or None if not present.
     :rtype: Optional[int]
     """
@@ -218,3 +218,33 @@ def interpolation_search(
             high = pos - 1
 
     return None
+
+
+def exponential_search(target: Any, items: List[Any]) -> Optional[int]:
+    """
+
+    :param target:
+    :param items:
+    :return:
+    """
+    pass
+
+
+def fibonacci_search(target: Any, items: List[Any]) -> Optional[int]:
+    """
+
+    :param target:
+    :param items:
+    :return:
+    """
+    pass
+
+
+def ternary_search(target: Any, items: List[Any]) -> Optional[int]:
+    """
+
+    :param target:
+    :param items:
+    :return:
+    """
+    pass

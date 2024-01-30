@@ -14,9 +14,9 @@ Algorithms Included
 3. **Binary Search:** [:func:`algorithms.searching.binary_search`]
 4. **Jump Search:** [:func:`algorithms.searching.jump_search`]
 5. **Interpolation Search:** [:func:`algorithms.searching.interpolation_search`]
-6. **Exponential Search:**
-7. **Fibonacci Search:**
-8. **Ternary Search:**
+6. **Exponential Search:** [:func:`algorithms.searching.interpolation_search`]
+7. **Fibonacci Search:** [:func:`algorithms.searching.interpolation_search`]
+8. **Ternary Search:** [:func:`algorithms.searching.interpolation_search`]
 """
 from typing import List, Optional, Any, Union
 
@@ -177,29 +177,126 @@ def interpolation_search(
 
 def exponential_search(target: Any, items: List[Any]) -> Optional[int]:
     """
+    Perform exponential search to find the index of the target element in the
+    given sorted array.
 
-    :param target:
-    :param items:
-    :return:
+    :param Any target: The value to search for.
+    :param List[Any] items: The list of items to search.
+    :return: The index of the target if found, or None if not present.
+    :rtype: Optional[int]
     """
-    pass
+    if not items:
+        return None
+
+    # If the target is smaller than the first element or larger than the last
+    # element, it cannot be in the array
+    if target < items[0] or target > items[-1]:
+        return None
+
+    i = 1
+
+    while i < len(items) and items[i] <= target:
+        i *= 2
+
+    # Perform binary search within the range found by exponential search
+    left, right = i // 2, min(i, len(items))
+    while left <= right:
+        mid = left + (right - left) // 2
+        if items[mid] == target:
+            return mid
+        elif items[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return None
 
 
-def fibonacci_search(target: Any, items: List[Any]) -> Optional[int]:
+def fibonacci_search(target: int, items: List[int]) -> Optional[int]:
     """
+    Perform fibonacci search to find the index of the target element in the
+    given sorted array.
 
-    :param target:
-    :param items:
-    :return:
+    :param int target: The value to search for.
+    :param List[int] items: The list of items to search.
+    :return: The index of the target if found, or None if not present.
+    :rtype: Optional[int]
     """
-    pass
+    if not items:
+        return None
+
+        # Define Fibonacci numbers
+    fib_m2, fib_m1 = 0, 1
+    fib = fib_m1 + fib_m2
+
+    # Find the smallest Fibonacci number greater than or equal to the length
+    # of the array
+    while fib < len(items):
+        fib_m2, fib_m1 = fib_m1, fib
+        fib = fib_m1 + fib_m2
+
+    # Initialize variables
+    offset = -1
+
+    # Perform search
+    while fib > 1:
+        # Calculate the next Fibonacci number to the left of fib
+        i = min(offset + fib_m2, len(items) - 1)
+
+        # If the target element is greater than the current element, move the
+        # offset and Fibonacci numbers to the right
+        if items[i] < target:
+            fib, fib_m1, fib_m2 = fib_m1, fib_m2, fib - fib_m1
+            offset = i
+
+        # If the target element is less than the current element, move the
+        # offset and Fibonacci numbers to the left
+        elif items[i] > target:
+            fib, fib_m1, fib_m2 = fib_m2, fib_m1 - fib_m2, fib_m2 - fib_m1
+        else:
+            return i
+
+    # If the target element is not found, return None
+    if fib_m1 and items[offset + 1] == target:
+        return offset + 1
+    return None
 
 
 def ternary_search(target: Any, items: List[Any]) -> Optional[int]:
     """
+    Perform ternary search to find the index of the target element in the
+    given sorted array.
 
-    :param target:
-    :param items:
-    :return:
+    :param Any target: The value to search for.
+    :param List[Any] items: The list of items to search.
+    :return: The index of the target if found, or None if not present.
+    :rtype: Optional[int]
     """
-    pass
+    if not items:
+        return None
+
+    left, right = 0, len(items) - 1
+
+    while left <= right:
+        # Divide the array into three parts
+        mid1 = left + (right - left) // 3
+        mid2 = right - (right - left) // 3
+
+        if items[mid1] == target:
+            return mid1
+        elif items[mid2] == target:
+            return mid2
+
+        # If the target is in the first third
+        elif items[mid1] > target:
+            right = mid1 - 1
+        # If the target is in the last third
+        elif items[mid2] < target:
+            left = mid2 + 1
+
+        # If the target is in the middle third
+        else:
+            left = mid1 + 1
+            right = mid2 - 1
+
+    return None

@@ -1,7 +1,7 @@
 Linear Search
 =============
 
-**Reference:** :func:`algorithms.linear_search`
+:func:`algorithms.linear_search`
 
 The Linear Search algorithm, also known as Sequential Search, is a simple
 searching algorithm that sequentially checks each element of a collection until
@@ -28,6 +28,16 @@ Algorithm Overview
 .. note::
    Linear Search has a time complexity of O(n), where 'n' is the number of
    elements in the collection.
+
+Example
+-------
+
+.. raw:: html
+
+   <video controls src="../../../_static/linear_search.mp4" width="620">
+   </video>
+
+|
 
 Implementation in Python
 ------------------------
